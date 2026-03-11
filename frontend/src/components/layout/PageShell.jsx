@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Sidebar from './Sidebar.jsx'
 import FloatingActionButton from './FloatingActionButton.jsx'
 
 export default function PageShell({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-[rgb(var(--gh-bg))]">
@@ -26,7 +28,7 @@ export default function PageShell({ children }) {
 
       <FloatingActionButton
         onClick={() => {
-          window.location.href = '/leads/new'
+          navigate('/leads/new')
         }}
       />
     </div>
